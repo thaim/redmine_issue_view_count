@@ -1,7 +1,10 @@
-<%= link_to 'view', '#', class: 'issue-view-count' %>
+<div id="issue-view-count" style="display: none;">
+  <a class="issue-view-count">view</a>
+  <span><%= issue.view_count %>回</span>
+</div>
 
 <script>
  $(function() {
-     $('.issue-view-count').prependTo('#content .contextual').show();
+     $('#issue-view-count').children().prependTo('#content > .contextual');
  });
 </script>
