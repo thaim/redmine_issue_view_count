@@ -5,6 +5,10 @@
 
 <script>
  $(function() {
+     $.ajax({
+         method: 'POST',
+         url: '<%= issue_view_countup_path(issue) %>',
+     });
      $('#issue-view-count').children().prependTo('#content > .contextual');
  });
 </script>
