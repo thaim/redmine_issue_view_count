@@ -5,18 +5,18 @@ module RedmineIssueViewCount
 
       included do
         self.available_columns << QueryAssociationColumn.new(
-          :view_counter,
+          :issue_view_counter,
           :count,
           caption: :field_issue_view_counter_count,
-          sortable: "#{ViewCounter.table_name}.count"
+          sortable: "#{IssueViewCounter.table_name}.count"
         )
       end
     end
 
     module Prepend
       def joins_for_order_statement(order_options)
-        return super unless order_options && order_options.include?('view_counters')
-        [super, "LEFT OUTER JOIN #{ViewCounter.table_name} ON #{ViewCounter.table_name}.issue_id = #{queried_table_name}.id"].join(' ')
+        return super unless order_options && order_options.include?('issue_view_counters')
+        [super, "LEFT OUTER JOIN #{IssueViewCounter.table_name} ON #{IssueViewCounter.table_name}.issue_id = #{queried_table_name}.id"].join(' ')
       end
     end
 

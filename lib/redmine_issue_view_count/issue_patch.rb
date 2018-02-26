@@ -5,11 +5,11 @@ module RedmineIssueView
     extend ActiveSupport::Concern
 
     included do
-      has_one :view_counter, dependent: :destroy
+      has_one :issue_view_counter, dependent: :destroy
     end
 
     def view_count
-      view_counter&.count || 0
+      issue_view_counter&.count || 0
     end
   end
 

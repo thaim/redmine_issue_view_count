@@ -1,1 +1,1 @@
-post '/issues/:id/view_counters', to: 'view_counters#create', as: 'issue_view_countup'
+post '/issues/:id/issue_view_counters', to: 'issue_view_counters#create', as: 'issue_view_countup'
